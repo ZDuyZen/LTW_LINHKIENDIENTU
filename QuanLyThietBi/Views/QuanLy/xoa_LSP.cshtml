@@ -1,0 +1,44 @@
+﻿@model QuanLyThietBi.Models.LOAISP
+
+@{
+    ViewBag.Title = "xoa_LSP";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Trở về trang chủ", "Index_QL")
+
+
+    </div>
+    <div class="row">
+        <p>Bạn có muốn xóa loại sản phẩm @Model.TENLSP</p>
+
+    </div>
+    <div class="row">
+        <fieldset>
+            <div class="display-label">
+                Tên loại sản phẩm
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.TENLSP)
+            </div>
+
+            <div class="display-label">
+                Mã loại thiết bị
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.MALH)
+            </div>
+        </fieldset>
+       
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" class="btn btn-primary" value="Xóa loại sản phẩm" />
+        </p>
+    }
+</div>

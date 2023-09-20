@@ -1,0 +1,50 @@
+﻿@model IEnumerable<QuanLyThietBi.Models.LOAISP>
+
+@{
+    ViewBag.Title = "QL_LoaiSanPham";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Thêm loại sản phẩm", "Tao_LSP")
+    </div>
+    <div class="row">
+        @Html.ActionLink("Trở về trang chủ", "Index_QL")
+    </div>
+
+    <div class="row text-center">
+
+        <table class="table">
+            <tr>
+                <th>Mã loại</th>
+                <th>
+                    Tên loại
+                </th>
+                <th>
+                    Mã loại thiết bị
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MALSP</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TENLSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MALH)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Sua_LSP", new { id = item.MALSP }) |
+                        @Html.ActionLink("Xóa", "Xoa_LSP", new { id = item.MALSP })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>

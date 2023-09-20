@@ -1,0 +1,64 @@
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\QuanLyThietBi.dll.config
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\QuanLyThietBi.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\QuanLyThietBi.pdb
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Antlr3.Runtime.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\EntityFramework.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Microsoft.Web.Infrastructure.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Newtonsoft.Json.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Net.Http.Formatting.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.WebHost.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Mvc.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Optimization.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Providers.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Razor.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Deployment.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Razor.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\WebGrease.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\EntityFramework.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Newtonsoft.Json.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Net.Http.Formatting.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.WebHost.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Mvc.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Razor.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Deployment.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Razor.xml
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.dll
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.pdb
+D:\Môn học\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.csprojResolveAssemblyReference.cache
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\QuanLyThietBi.dll.config
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\QuanLyThietBi.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\QuanLyThietBi.pdb
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Antlr3.Runtime.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\EntityFramework.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Microsoft.Web.Infrastructure.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Newtonsoft.Json.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Net.Http.Formatting.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.WebHost.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Mvc.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Optimization.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Providers.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Razor.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Deployment.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Razor.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\WebGrease.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\EntityFramework.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\Newtonsoft.Json.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Net.Http.Formatting.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Http.WebHost.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Mvc.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.Razor.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Deployment.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Razor.xml
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.csprojResolveAssemblyReference.cache
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.dll
+D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.pdb

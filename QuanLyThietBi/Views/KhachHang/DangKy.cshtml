@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "DangKy";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+}
+
+<h2>Đăng ký tài khoản</h2>
+
+<form action="/KhachHang/XLDangKy" method="post">
+    <table class="table-light">
+        <tr>
+            <td>Họ tên khách hàng</td>
+            <td>
+                <input type="text" name="txtTen" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Số điện thoại (là user đăng nhập)</td>
+            <td>
+                <input type="text" name="txtDT" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Mật khẩu</td>
+            <td>
+                <input type="text" name="txtPass" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <label name="gioitinh">Giới tính</label>
+            </td>
+            <td>
+                <input type="radio" name="gioitinh" value="1" /> Nam<br />
+                <input type="radio" name="gioitinh" value="2" /> Nữ<br />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" name="txtEmail" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Địa chỉ</td>
+            <td>
+                <input type="text" name="txtDiaChi" />
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" class="btn btn-primary" value="Đăng ký" />
+
+            </td>
+        </tr>
+    </table>
+</form>

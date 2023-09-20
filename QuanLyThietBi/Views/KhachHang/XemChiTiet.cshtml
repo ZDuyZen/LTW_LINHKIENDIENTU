@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+    List<LOAISP> lsp = ViewBag.lsp;
+    List<LOAIHANG> lh = ViewBag.lh;
+    List<NHAXUATXU> nxx = ViewBag.nxx;
+}
+@using QuanLyThietBi.Models
+@model SANPHAM
+
+<h2>@Model.TENSP</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-5">
+            <img class="img-thumbnail" src="~/HinhAnhSP/@Model.HINHSANPHAM" width="600" style="max-height:350px" />
+        </div>
+
+        <div class="col-7">
+            <ul style="line-height: 40px; list-style-type: square; ">
+                <li>Tên sản phẩm: @Model.TENSP</li>
+                <li>Tồn kho: @Model.SOLUONG sản phẩm</li>
+                <li>Giá bán: <span style="color:red">@Convert.ToDecimal(Model.GIABAN).ToString("0,0") VND</span></li>
+                @{
+                    foreach (var item in lsp)
+                    {
+                        if (item.MALSP == Model.MALSP)
+                        {
+                            <li>Loại sản phẩm: @item.TENLSP</li>
+                        }
+                    }
+
+                    foreach (var item in lh)
+                    {
+                        foreach (var item2 in lsp)
+                        {
+                            if (Model.MALSP == item2.MALSP && item2.MALH == item.MALH)
+                            {
+                                <li>Loại hàng: @item.TENLH</li>
+                            }
+                        }
+                    }
+
+                    foreach (var item in nxx)
+                    {
+                        if (item.MANXX == Model.MANXX)
+                        {
+                            <li>Xuất xứ: @item.TENNXX</li>
+                        }
+                    }
+                }
+            </ul>
+            <form action="~/KhachHang/themNhieuSP" method="post">
+                <div class="row">
+                    <div class="col-2">
+                        <input type="text" name="txtSoluong" style="width:50px" class="form-control" />
+                    </div>
+                    <div class="col-3">
+                        <input type="submit" value="Chọn mua" class="btn btn-primary" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12" style="border-radius: 5px; background-color: white">
+            <div style="font-size: 20px; color: orange">Mô tả</div>
+            <div>@Model.MOTA</div>
+
+        </div>
+    </div>
+
+
+</div>

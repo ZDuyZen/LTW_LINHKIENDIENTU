@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+}
+
+<h2 style="text-align:center; font-weight:bold; color:blue">ĐĂNG NHẬP</h2>
+<h3><span style="color: red">@Session["DangNhapLoi"]</span></h3>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form class="form-group" action="~/KhachHang/XLDangNhap" method="post">
+                Tên đăng nhập<br />
+                <input type="text" class="w-100" name="txtName" placeholder="Tên khách hàng" style="margin:20px" /><br />
+                Mật khẩu<br />
+                <input type="password" class="w-100" name="txtPass" placeholder="Mật khẩu" style="margin:20px" />
+
+
+                <p style="text-align: center">
+                    <input type="submit" value="Đăng Nhập" />
+                </p>
+            </form>
+        </div>
+    </div>
+</div>

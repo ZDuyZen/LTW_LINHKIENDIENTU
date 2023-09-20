@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+@using QuanLyThietBi.Models
+
+@{
+
+
+}
+
+<body>
+    <div class="container bg-light">
+        <div class="row bg-primary">
+            <div class="col-2">
+                <b style="text-align:center; font-size:x-large; font:italic"><a style="color: white" href="~/KhachHang/Index_KH">HUFI</a></b>
+            </div>
+      
+            <div class="col-9">
+                <ul class="nav">
+                    <li class="nav-item"><a href="~/KhachHang/Index_KH" style="color:white" class="nav-link">Trang chủ</a></li>
+                    @{
+                        if (Session["KH"] == null)
+                        {
+                            <li class="nav-item"><a href="~/KhachHang/DangKy" style="color:white" class="nav-link">Đăng kí</a></li>
+                            <li class="nav-item"><a href="~/KhachHang/DangNhap" style="color:white" class="nav-link">Đăng nhập</a></li>
+                        }
+                        else
+                        {
+                            <li class="nav-item navbar">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" id="dangnhap" data-toggle="dropdown" style="color: white" href="#">@Session["KH"]</a>
+                                    <div class="dropdown-menu" aria-labelledby="dangnhap">
+                                        <a class="dropdown-item" href="~/KhachHang/DangXuat">Đăng xuất</a>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    }
+
+                    <li class="nav-item"><a href="~/KhachHang/TimKiem" style="color:white" class="nav-link">Tim kiếm</a></li>
+
+                    <li></li>
+                    <li class="nav-item"><a href="#" style="color:white" class="nav-link">Liên hệ</a></li>
+                    <li class="nav-item"><a href="#" style="color:white" class="nav-link">Chăm sóc khách hàng</a></li>
+                    <li class="nav-item">
+                        <a href="/KhachHang/xemGioHang" class="nav-link">
+                            <img style="width:30px; height:30px; color:white" src="~/HinhAnhSP/giohang.jpg" />(
+                            @if (Session["gh"] == null)
+                            {
+                                <span style="color:red; font-weight: bold">0</span>
+                            }
+                            else
+                            {
+                               GioHang gio = (GioHang)Session["gh"];
+                               <span style ="font-size: 15px; color: red; font-weight: bold">@gio.demSLMatHang()</span>
+                            }
+                            )
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            @Html.Action("DS_LoaiHang_LoaiSP", "KhachHang")
+
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                @Html.Action("DS_LoaiSanPham", "KhachHang")
+            </div>
+            <div class="col-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <script src="~/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

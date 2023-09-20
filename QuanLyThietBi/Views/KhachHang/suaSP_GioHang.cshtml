@@ -1,0 +1,34 @@
+﻿@model QuanLyThietBi.Models.Item
+
+@{
+    ViewBag.Title = "suaSP_GioHang";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+}
+
+<h2>Chỉnh sửa số lượng đơn hàng @Model.tenSP trong giỏ hàng</h2>
+
+<form action="/KhachHang/XLsuaSP_GioHang" method="post">
+    <table class="table-light">
+        <tr>
+            <td>Id sản phẩm</td>
+            <td>
+                <input type="number" name="txtIDSP" value="@Model.idSP" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Số lượng sản phẩm cần đặt</td>
+            <td>
+                <input type="number" name="txtSoluong" />
+            </td>
+        </tr>
+      
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Chỉnh sửa" />
+
+            </td>
+        </tr>
+    </table>
+</form>
+

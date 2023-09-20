@@ -1,0 +1,78 @@
+﻿@model QuanLyThietBi.Models.SANPHAM
+
+@{
+    ViewBag.Title = "xoa_SP";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Trở về trang chủ", "Index_QL")
+    </div>
+    <div class="row">
+        <p>Bạn có muốn xóa sản phẩm</p>
+    </div>
+    <div class="row">
+        <fieldset>
+            <div class="display-label">
+                Tên sản phẩm
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.TENSP)
+            </div>
+
+            <div class="display-label">
+                Mô tả
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.MOTA)
+            </div>
+
+            <div class="display-label">
+                Hình sản phẩm
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.HINHSANPHAM)
+            </div>
+
+            <div class="display-label">
+                Giá bán
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.GIABAN)
+            </div>
+
+            <div class="display-label">
+                Số lượng
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.SOLUONG)
+            </div>
+
+            <div class="display-label">
+                Mã loại sản phẩm
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.MALSP)
+            </div>
+
+            <div class="display-label">
+                Mã nước xuất khẩu
+            </div>
+            <div class="display-field">
+                @Html.DisplayFor(model => model.MANXX)
+            </div>
+        </fieldset>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" class="btn btn-primary" value="Xóa sản phẩm" /> 
+        </p>
+    }
+
+</div>
+
+
+

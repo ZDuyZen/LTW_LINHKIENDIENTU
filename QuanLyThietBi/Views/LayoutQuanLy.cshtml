@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/bootstrap/css/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container bg-light">
+        <div class="row bg-primary">
+            <div class="col-3">
+                <b style="text-align:center; font-size:x-large; font:italic"><a style="color: white" href="~/QuanLy/Index_QL">HUFI</a></b>
+            </div>
+            <div class="col-9">
+                <b style="text-align:center; font-size:x-large; font:italic"><a style="color: white" href="~/QuanLy/Index_QL">Trang quản lý</a></b>
+            </div>
+        </div>
+
+        <div class="row">
+            <ul class="nav navbar">
+                <li class="nav-item"><a href="~/QuanLy/QL_LoaiSanPham" class="nav-link">Quản lý loại sản phẩm</a></li>
+                <li class="nav-item"><a href="~/QuanLy/QL_SanPham" class="nav-link">Quản lý sản phẩm</a></li>
+                <li class="nav-item"><a href="~/QuanLy/QL_DonHang" class="nav-link">Quản lý đơn hàng và giao hàng</a></li>
+            </ul>
+        </div>
+
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+    <script src="~/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

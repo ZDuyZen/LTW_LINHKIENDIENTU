@@ -1,0 +1,28 @@
+﻿@using QuanLyThietBi.Models
+@model List<LOAISP>
+<style>
+    #hu1 {
+        color: black;
+    }
+
+        #hu1:hover {
+            color: red;
+            font-size: large;
+        }
+</style>
+
+<ul class="nav flex-column border" style="text-align:center">
+    <li class="nav-item" style="background-color: yellow; color: red">
+        <b>DANH MỤC SẢN PHẨM</b>
+    </li>
+
+    @{
+
+        foreach (var item in Model)
+        {
+            <li class="nav-item">
+                <a href="~/KhachHang/DS_SanPham_theo_LoaiSP/@item.MALSP" class="nav-link" id="hu1" style="background-color: cyan">@item.TENLSP</a>
+            </li>
+        }
+    }
+</ul>

@@ -1,0 +1,116 @@
+﻿@model IEnumerable<QuanLyThietBi.Models.Item>
+
+@{
+    ViewBag.Title = "xemGioHang";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+}
+
+<h2>Giỏ hàng</h2>
+<h2 style="color:red">@Session["loiGH"]</h2>
+
+<div class="container">
+    <div class="row">
+        <a href="~/KhachHang/xoaGioHang" class="btn btn-primary" style="color: white">Xóa giỏ hàng</a>
+
+        <table class="table text-center">
+            
+            <tr>
+                <th>
+                    Ảnh sản phẩm
+                </th>
+                <th>
+                    Mã sản phẩm
+                </th>
+                <th>
+                    Tên sản phẩm
+                </th>
+                <th>
+                    Đơn giá
+                </th>
+                <th>
+                    Số lượng
+                </th>
+                <th>
+                    Thành tiền
+                </th>
+                <th>
+                    Sửa
+                </th>
+            </tr>
+
+            @{
+                if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <a href="~/KhachHang/XemChiTiet/@item.idSP">
+                                    <img class="w-75" src="/HinhAnhSP/@item.anhBia" style="height: 100px" />
+                                </a>
+                            </td>
+                            <td>
+                                @item.idSP
+                            </td>
+                            <td>
+                                @item.tenSP
+                            </td>
+                            <td>
+                                @item.donGia VND
+                            </td>
+                            <td>
+                                @item.soLuong
+                            </td>
+                            <td>
+                                @Convert.ToDecimal(item.thanhTien).ToString("0,0") VND
+                            </td>
+                            <td>
+                                @Html.ActionLink("-", "truGioHang", new { id = item.idSP }) |
+                                @Html.ActionLink("+", "congGioHang", new { id = item.idSP }) |
+                                @Html.ActionLink("Sửa", "suaSP_GioHang", new { id = item.idSP })
+
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            <tr>
+                <td colspan="5">
+                    @{
+                        int tongsoluong = 0;
+                        if (Model != null)
+                        {
+                            tongsoluong = Model.Sum(t => t.soLuong);
+                        }
+                        <span>Tổng số lượng: @tongsoluong </span>
+                    }
+                </td>
+                <td colspan="2">
+                    Tổng tiền
+                    @{
+                        double tongtien = 0;
+                        if (Model != null)
+                        {
+                            tongtien = Model.Sum(t => t.thanhTien);
+                            <span style="color: red"> @Convert.ToDecimal(tongtien).ToString("0,0") VND </span>
+                        }
+                        <span style="color: red"> @tongtien VND </span>
+
+                    }
+                </td>
+
+
+            </tr>
+
+        </table>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-2">
+           <div class="">
+               <a href="~/KhachHang/XuLyThanhToan" class="btn btn-primary" style="color: white">Thanh toán</a>
+           </div>
+
+        </div>
+    </div>
+</div>

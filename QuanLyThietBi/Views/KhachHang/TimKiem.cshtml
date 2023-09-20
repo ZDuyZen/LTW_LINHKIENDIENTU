@@ -1,0 +1,48 @@
+﻿@{
+    ViewBag.Title = "TimKiem";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+}
+
+@using QuanLyThietBi.Models
+@{
+    List<LOAISP> lsp = ViewBag.lsp;
+}
+<form action="/KhachHang/XL_TimKiem" method="post">
+    <table class="table">
+        <tr>
+            <td>Tên sản phẩm</td>
+            <td>
+                <input type="text" name="txtTen" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Loại sản phẩm</td>
+            <td>
+                <select name="LSP">
+                    @{
+                        foreach (var item in lsp)
+                        {
+                            <option value="@item.MALSP"> @item.TENLSP</option>
+                        }
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                Giá từ 
+                <input type="text" name="txtgiaDuoi" /> 
+                đến <input type="text" name="txtgiaTren" />
+            </td>          
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Tìm kiếm" />
+
+            </td>
+        </tr>
+    </table> 
+</form>

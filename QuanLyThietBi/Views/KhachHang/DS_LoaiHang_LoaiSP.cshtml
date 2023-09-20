@@ -1,0 +1,39 @@
+﻿@using QuanLyThietBi.Models
+@model List<LOAIHANG>
+@{
+    List<LOAISP> lsp = ViewBag.lsp;
+}
+
+<div class="row">
+    <div class="col-12">
+
+        <ul class="nav navbar">
+            @{
+                foreach (var item in Model)
+                {
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="nav-link dropdown-toggle" id="@item.MALH" data-toggle="dropdown" href="#"> @item.TENLH</a>
+                            <div class="dropdown-menu" aria-labelledby="@item.MALH">
+                                @{
+                    foreach (var item2 in lsp)
+                    {
+                        if (item.MALH == item2.MALH)
+                        {
+                            <a class="dropdown-item" href="~/KhachHang/DS_SanPham_theo_LoaiSP/@item2.MALSP">@item2.TENLSP </a>
+                        }
+                    }
+                                }
+
+                            </div>
+                        </div>
+                    </li>
+                }
+            }
+
+
+        </ul>
+
+    </div>
+
+</div>

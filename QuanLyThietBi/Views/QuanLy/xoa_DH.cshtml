@@ -1,0 +1,63 @@
+﻿@model QuanLyThietBi.Models.DONHANG
+
+@{
+    ViewBag.Title = "xoa_DH";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+        <div class="row">
+            @Html.ActionLink("Trở về trang chủ", "Index_QL")
+        </div>
+        <div class="row">
+            <p>Bạn có muốn xóa sản đơn hàng @Model.MADH</p>
+        </div>
+        <div class="row">
+            <fieldset>
+                <div class="display-label">
+                    Ngày đặt
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.NGAYDAT)
+                </div>
+
+                <div class="display-label">
+                    Ngày giao
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.NGAYGIAO)
+                </div>
+
+                <div class="display-label">
+                    Đã thanh toán
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.DATHANHTOAN)
+                </div>
+
+                <div class="display-label">
+                    Tình trạng thanh toán
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.TINHTRANGGIAOHANG)
+                </div>
+
+                <div class="display-label">
+                    Mã khách hàng
+                </div>
+                <div class="display-field">
+                    @Html.DisplayFor(model => model.MAKH)
+                </div>
+            </fieldset>
+
+        </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <p>
+            <input type="submit" class="btn btn-primary" value="Xóa đơn hàng" /> 
+        </p>
+    }
+</div>
+
+

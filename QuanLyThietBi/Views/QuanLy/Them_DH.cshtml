@@ -1,0 +1,76 @@
+﻿@model QuanLyThietBi.Models.DONHANG
+
+@{
+    ViewBag.Title = "Them_DH";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+<div class="container">
+        <div class="row">
+            <h2>Thêm đơn hàng</h2>
+        </div>
+        <div class="row">
+            @Html.ActionLink("Trở về trang chủ", "Index_QL")
+        </div>
+        <div class="row">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <fieldset>
+                    <div class="editor-label">
+                        Mã đơn hàng
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MADH)
+                        @Html.ValidationMessageFor(model => model.MADH)
+                    </div>
+                    <div class="editor-label">
+                        Ngày đặt
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.NGAYDAT)
+                        @Html.ValidationMessageFor(model => model.NGAYDAT)
+                    </div>
+
+                    <div class="editor-label">
+                        Ngày giao
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.NGAYGIAO)
+                        @Html.ValidationMessageFor(model => model.NGAYGIAO)
+                    </div>
+
+                    <div class="editor-label">
+                        Đã thanh toán
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.DATHANHTOAN)
+                        @Html.ValidationMessageFor(model => model.DATHANHTOAN)
+                    </div>
+
+                    <div class="editor-label">
+                        Tình trạng giao hàng
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.TINHTRANGGIAOHANG)
+                        @Html.ValidationMessageFor(model => model.TINHTRANGGIAOHANG)
+                    </div>
+
+                    <div class="editor-label">
+                        Mã khách hàng
+                    </div>
+                    <div class="editor-field">
+                        @Html.EditorFor(model => model.MAKH)
+                        @Html.ValidationMessageFor(model => model.MAKH)
+                    </div>
+
+                    <p>
+                        <input type="submit" class="btn btn-primary" value="Tạo đơn hàng" />
+                    </p>
+                </fieldset>
+            }
+
+        </div>
+</div>

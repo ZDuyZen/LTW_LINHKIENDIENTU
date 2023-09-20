@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Index_KH";
+    Layout = "~/Views/LayoutKhachHang.cshtml";
+}
+@using QuanLyThietBi.Models
+@model List<SANPHAM>
+
+<h2 style="color:blue">@Session["TenDM"]</h2>
+<div class="container">
+    <div class="row">
+        @{
+    foreach (var item in Model)
+    {
+        <div class="col-4" style="padding-bottom: 10px">
+            <div class="card card-group" style="height: 300px">
+                <a href="~/KhachHang/XemChiTiet/@item.MASP">
+                    <img src="~/HinhAnhSP/@item.HINHSANPHAM" width="242" height="200"></img>
+                </a>
+
+                <div class="card-body">
+                    <div class="card-text">Tên sản phẩm: @item.TENSP</div>
+                    <div class="card-text">
+                        Giá: <span style="color: red">@Convert.ToDecimal(item.GIABAN).ToString("0,0") VND</span>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    }
+}
+    </div>
+</div>

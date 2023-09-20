@@ -1,0 +1,93 @@
+﻿@model QuanLyThietBi.Models.SANPHAM
+
+@{
+    ViewBag.Title = "Them_SP";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <h2>Thêm sản phẩm</h2>
+    </div>
+
+    <div class="row">
+        @Html.ActionLink("Trở về trang chủ", "Index_QL")
+    </div>
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+                <div class="editor-label">
+                    Mã sản phẩm
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MASP)
+                    @Html.ValidationMessageFor(model => model.MASP)
+                </div>
+
+                <div class="editor-label">
+                    Tên sản phẩm
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TENSP)
+                    @Html.ValidationMessageFor(model => model.TENSP)
+                </div>
+
+                <div class="editor-label">
+                    Mô tả
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MOTA)
+                    @Html.ValidationMessageFor(model => model.MOTA)
+                </div>
+
+                <div class="editor-label">
+                    Hình sản phẩm
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.HINHSANPHAM)
+                    @Html.ValidationMessageFor(model => model.HINHSANPHAM)
+                </div>
+
+                <div class="editor-label">
+                    Giá bán
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.GIABAN)
+                    @Html.ValidationMessageFor(model => model.GIABAN)
+                </div>
+
+                <div class="editor-label">
+                    Số lượng
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.SOLUONG)
+                    @Html.ValidationMessageFor(model => model.SOLUONG)
+                </div>
+
+                <div class="editor-label">
+                    Mã loại sản phẩm
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MALSP)
+                    @Html.ValidationMessageFor(model => model.MALSP)
+                </div>
+
+                <div class="editor-label">
+                    Mã nước xuất khẩu
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.MANXX)
+                    @Html.ValidationMessageFor(model => model.MANXX)
+                </div>
+
+                <p>
+                    <input type="submit" class="btn btn-primary" value="Thêm sản phẩm" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</div>
+

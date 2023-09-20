@@ -1,0 +1,45 @@
+﻿@model QuanLyThietBi.Models.LOAISP
+
+@{
+    ViewBag.Title = "Sua_LSP";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+<h2>Sua_LSP</h2>
+<div class="container">
+    <div class="row">
+        <p style="font-size: 15px">Sửa thông tin loại sản phẩm @Model.TENLSP</p>
+    </div>
+    <div class="row">
+        @Html.ActionLink("Trở về trang chủ", "Index_QL")
+    </div>
+    <div class="row justify-content-center">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+
+            <fieldset>
+
+                @Html.HiddenFor(model => model.MALSP)
+
+                <div class="editor-label">
+                    Tên loại sản phẩm
+                </div>
+                <div class="editor-field">
+                    @Html.EditorFor(model => model.TENLSP)
+                    @Html.ValidationMessageFor(model => model.TENLSP)
+                </div>
+
+               
+
+                <p>
+                    <input type="submit" class="btn btn-primary" value="Save" />
+                </p>
+            </fieldset>
+        }
+    </div>
+   
+
+</div>
+

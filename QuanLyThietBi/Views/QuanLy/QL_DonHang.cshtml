@@ -1,0 +1,69 @@
+﻿@model IEnumerable<QuanLyThietBi.Models.DONHANG>
+
+@{
+    ViewBag.Title = "QL_DonHang";
+    Layout = "~/Views/LayoutQuanLy.cshtml";
+}
+
+<h2>QL_DonHang</h2>
+
+<div class="container">
+    <div class="row">
+        @Html.ActionLink("Thêm đơn hàng", "Them_DH")
+    </div>
+    <div class="row">
+        @Html.ActionLink("Trở về trang chủ", "Index_QL")
+    </div>
+    <div class="row">
+
+        <table class="table">
+            <tr>
+                <th>Mã đơn hàng</th>
+                <th>
+                    Ngày đặt
+                </th>
+                <th>
+                    Ngày giao
+                </th>
+                <th>
+                   Đã thanh toán
+                </th>
+                <th>
+                    Tình trạng giao hàng
+                </th>
+                <th>
+                   Mã khách hàng
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MADH</td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAYDAT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NGAYGIAO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DATHANHTOAN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TINHTRANGGIAOHANG)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MAKH)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Sua_DH", new { id = item.MADH }) |
+                        @Html.ActionLink("Xóa", "Xoa_DH", new { id = item.MADH })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
