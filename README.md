@@ -1,4 +1,4 @@
-# Giới thiệu Web_LinhKienDienTu
+# Giới thiệu
 Đây là website bán linh kiện điện tử được xây dựng từ ngôn ngữ .NET và hệ quản trị cơ sở dữ liệu SQL Server
 
 ## Đề tài
