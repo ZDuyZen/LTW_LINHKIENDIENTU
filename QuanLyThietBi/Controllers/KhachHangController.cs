@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Data.SqlClient;
 using System.Data;
 using QuanLyThietBi.Models;
+using System.Drawing;
 
 namespace QuanLyThietBi.Controllers
 {
@@ -254,57 +255,91 @@ namespace QuanLyThietBi.Controllers
 
         public ActionResult ThanhToan()
         {
-            List<CHITIETDONHANG> dh = db.CHITIETDONHANGs.ToList();
-            return View(dh);
+            // Kiểm tra nếu Session["KH"] không tồn tại hoặc không thể chuyển đổi thành kiểu INT
+            if (Session["KH"] == null || !int.TryParse(Session["KH"].ToString(), out int maKhachHang))
+            {
+                // Xử lý khi Session["KH"] không có giá trị hợp lệ
+                // Ví dụ: bạn có thể chuyển hướng hoặc thông báo lỗi tùy ý
+                return RedirectToAction("Loi");
+            }
+
+            // Lấy danh sách chi tiết đơn hàng của khách hàng cụ thể
+            var donHangCuaKhachHang = from donHang in db.DONHANGs
+                                      join chiTiet in db.CHITIETDONHANGs
+                                      on donHang.MADH equals chiTiet.MADH
+                                      join sanPham in db.SANPHAMs
+                                      on chiTiet.MASP equals sanPham.MASP
+                                      where donHang.MAKH == maKhachHang
+                                      select new
+                                      {
+                                          DonHang = donHang,
+                                          ChiTietDonHang = chiTiet,
+                                          SanPham = sanPham
+                                      };
+
+
+            List<CHITIETDONHANG> ctdh1 = donHangCuaKhachHang.Select(x => x.ChiTietDonHang).ToList();
+
+            return View(ctdh1);
         }
 
         public ActionResult XuLyThanhToan()
         {
             GioHang gio = layGioHang();
-            if(gio==null)
+            if (gio == null || gio.lstSP.Count == 0)
             {
                 Session["loiGH"] = "Không thể thanh toán khi giỏ hàng rỗng";
                 return RedirectToAction("xemGioHang");
             }
 
-            if(Session["KH"] == null)
+            // Kiểm tra xem có Session["KH"] tồn tại không
+            if (Session["KH"] == null || !int.TryParse(Session["KH"].ToString(), out int maKhachHang))
             {
                 Session["DangNhapLoi"] = "Vui lòng đăng nhập để thanh toán";
                 return RedirectToAction("DangNhap");
             }
+
+            int sodonhang = db.DONHANGs.ToList().Count + 1;
             List<Item> a = gio.lstSP;
-            foreach(var item in a)
+
+            DONHANG dh = new DONHANG();
+            DateTime time = DateTime.Today;
+            dh.MADH = sodonhang;
+            dh.NGAYDAT = time;
+            dh.NGAYGIAO = null;
+            dh.DATHANHTOAN = "Chưa thanh toán";
+            dh.TINHTRANGGIAOHANG = "Đang giao hàng";
+
+            // Lấy thông tin khách hàng từ mã khách hàng
+            KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(t => t.MAKH == maKhachHang);
+            if (kh != null)
             {
-                DONHANG dh = new DONHANG();
-                DateTime time = new DateTime();
-                time = DateTime.Today;
-                dh.MADH = db.DONHANGs.ToList().Count + 1;
-                dh.NGAYDAT = time;
-                dh.NGAYGIAO = null;
-                dh.DATHANHTOAN = "Chưa thanh toán";
-                dh.TINHTRANGGIAOHANG = "Đang giao hàng";
-                KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(t=>t.DIENTHOAI == Session["KH"]);
                 dh.MAKH = kh.MAKH;
 
                 db.DONHANGs.InsertOnSubmit(dh);
                 db.SubmitChanges();
-            }
 
-            foreach(var item in a)
+                foreach (var item in a)
+                {
+                    CHITIETDONHANG ctdh = new CHITIETDONHANG();
+                    ctdh.MADH = sodonhang;
+                    ctdh.MASP = item.idSP;
+                    ctdh.SOLUONG = item.soLuong;
+                    ctdh.DONGIA = Convert.ToDecimal(item.donGia) * ctdh.SOLUONG;
+
+                    db.CHITIETDONHANGs.InsertOnSubmit(ctdh);
+                    db.SubmitChanges();
+                }
+
+                return RedirectToAction("ThanhToan");
+            }
+            else
             {
-                CHITIETDONHANG ctdh = new CHITIETDONHANG();
-                ctdh.MADH = db.CHITIETDONHANGs.ToList().Count + 1;
-                ctdh.MASP = item.idSP;
-                ctdh.SOLUONG = item.soLuong;
-                ctdh.MASP = item.id_LSP;
-                ctdh.DONGIA = Convert.ToDecimal(item.donGia);
-
-                db.CHITIETDONHANGs.InsertOnSubmit(ctdh);
-                db.SubmitChanges();
+                // Xử lý khi không tìm thấy thông tin khách hàng
+                // Ví dụ: bạn có thể chuyển hướng hoặc thông báo lỗi tùy ý
+                return RedirectToAction("Loi");
             }
-
-
-            return RedirectToAction("ThanhToan");
         }
+
     }
 }

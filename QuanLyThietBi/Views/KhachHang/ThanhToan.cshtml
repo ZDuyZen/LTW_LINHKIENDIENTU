@@ -23,7 +23,6 @@
         <th>
             Đơn giá
         </th>
-        <th>Thành tiền</th>
     </tr>
 
     @{
@@ -40,13 +39,7 @@
                     <td>
                        @Convert.ToDecimal(item.DONGIA).ToString("0,0") VND
                     </td>
-                    <td>
-                        @{
-                thanhtien = Convert.ToInt32(item.SOLUONG) * Convert.ToInt32(item.DONGIA);
-                tongtien += thanhtien;
-                        }
-                        @Convert.ToDecimal(thanhtien).ToString("0,0") VND
-                    </td>
+                    
                 </tr>
             }
         }
