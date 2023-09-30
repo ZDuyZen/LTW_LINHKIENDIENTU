@@ -4,8 +4,8 @@ CREATE DATABASE QL_ThietBi
 GO
 USE QL_ThietBi
 GO
-drop database QL_ThietBi
-go
+--drop database QL_ThietBi
+--go
 
 CREATE TABLE LOAIHANG
 (

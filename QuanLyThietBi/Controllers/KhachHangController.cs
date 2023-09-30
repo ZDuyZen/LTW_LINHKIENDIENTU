@@ -191,7 +191,7 @@ namespace QuanLyThietBi.Controllers
         {            
             TAIKHOAN tk = new TAIKHOAN();
             tk.TENDANGNHAP = fc["txtDT"];
-            tk.PASS = fc["txtPasss"];
+            tk.PASS = fc["txtPass"];
             tk.MALOAITK = 2;
 
             db.TAIKHOANs.InsertOnSubmit(tk);

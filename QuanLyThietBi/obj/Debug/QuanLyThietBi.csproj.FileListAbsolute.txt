@@ -62,3 +62,37 @@ D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\bin\System.Web.WebPages.Razor.xm
 D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.csprojResolveAssemblyReference.cache
 D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.dll
 D:\Lập trình web\QuanLyThietBi\QuanLyThietBi\obj\Debug\QuanLyThietBi.pdb
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\QuanLyThietBi.dll.config
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\QuanLyThietBi.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\QuanLyThietBi.pdb
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\Antlr3.Runtime.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\EntityFramework.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\Microsoft.Web.Infrastructure.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\Newtonsoft.Json.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Net.Http.Formatting.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Http.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Http.WebHost.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Mvc.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Optimization.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Providers.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Razor.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.WebPages.Deployment.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.WebPages.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.WebPages.Razor.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\WebGrease.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\EntityFramework.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\Newtonsoft.Json.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Net.Http.Formatting.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Http.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Http.WebHost.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Mvc.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.Razor.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.WebPages.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.WebPages.Deployment.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\bin\System.Web.WebPages.Razor.xml
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\obj\Debug\QuanLyThietBi.csproj.AssemblyReference.cache
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\obj\Debug\QuanLyThietBi.csproj.CoreCompileInputs.cache
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\obj\Debug\QuanLyThietBi.csproj.CopyComplete
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\obj\Debug\QuanLyThietBi.dll
+D:\Github\LTW_LINHKIENDIENTU\QuanLyThietBi\obj\Debug\QuanLyThietBi.pdb
