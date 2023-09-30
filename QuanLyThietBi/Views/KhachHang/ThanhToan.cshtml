@@ -37,19 +37,23 @@
                         @item.SOLUONG
                     </td>
                     <td>
-                       @Convert.ToDecimal(item.DONGIA).ToString("0,0") VND
+                        @{
+                            thanhtien += Convert.ToInt32(item.DONGIA);
+                        }
+                        @Convert.ToDecimal(thanhtien).ToString("0,0") VND
                     </td>
-                    
+
+
                 </tr>
             }
         }
     }
     <tr>
-        <td colspan="5">
+        <td colspan="4">
             Tổng tiền
             @{
 
-                <span style="color: red"> @Convert.ToDecimal(tongtien).ToString("0,0") VND </span>
+                <span style="color: red"> @Convert.ToDecimal(thanhtien).ToString("0,0") VND </span>
             }
         </td>
     </tr>

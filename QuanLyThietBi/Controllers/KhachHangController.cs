@@ -330,6 +330,7 @@ namespace QuanLyThietBi.Controllers
                     db.CHITIETDONHANGs.InsertOnSubmit(ctdh);
                     db.SubmitChanges();
                 }
+                Session["gh"] = null;
 
                 return RedirectToAction("ThanhToan");
             }

@@ -32,6 +32,7 @@
                         }
                         else
                         {
+                            <li class="nav-item"><a href="~/KhachHang/ThanhToan" style="color:white" class="nav-link">Lịch sử thanh toán</a></li>
                             <li class="nav-item navbar">
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" id="dangnhap" data-toggle="dropdown" style="color: white" href="#">@Session["KH"]</a>
@@ -57,8 +58,8 @@
                             }
                             else
                             {
-                               GioHang gio = (GioHang)Session["gh"];
-                               <span style ="font-size: 15px; color: red; font-weight: bold">@gio.demSLMatHang()</span>
+                                GioHang gio = (GioHang)Session["gh"];
+                                <span style="font-size: 15px; color: red; font-weight: bold">@gio.demSLMatHang()</span>
                             }
                             )
                         </a>
