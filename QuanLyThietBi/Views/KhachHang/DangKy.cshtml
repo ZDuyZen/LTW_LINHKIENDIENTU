@@ -75,10 +75,7 @@
             return false;
         }
 
-        if (txtDT.length !== 10) {
-            alert('Số điện thoại phải đủ 10 ký tự.');
-            return false;
-        }
+
 
         if (txtPass.length > 20) {
             alert('Mật khẩu không được vượt quá 20 ký tự.');
@@ -90,7 +87,7 @@
             return false;
         }
 
-        if (txtTen.length > 20) {
+        if (txtTen.length > 50) {
             alert('Tên khách hàng không được vượt quá 50 ký tự.');
             return false;
         }
@@ -99,6 +96,20 @@
             alert('Email không được vượt quá 50 ký tự.');
             return false;
         }
+
+        // Kiểm tra số điện thoại chỉ chứa số (0-9)
+        var phoneNumberRegex = /^[0-9]{10}$/;
+        if (!phoneNumberRegex.test(txtDT)) {
+            alert('Số điện thoại không hợp lệ. Vui lòng chỉ nhập số (0-9) và đủ 10 ký tự.');
+            return false;
+        }
+
+        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!emailRegex.test(txtEmail)) {
+            alert('Email không hợp lệ. Vui lòng nhập địa chỉ email đúng định dạng.');
+            return false;
+        }
+
         // Kiểm tra giới tính (ít nhất một radio button phải được chọn)
         var gioitinhChecked = false;
         for (var i = 0; i < gioitinh.length; i++) {

@@ -26,6 +26,8 @@
 <script>
     function validateForm() {
         var username = document.getElementById('txtName').value;
+        var password = document.getElementById('txtPass').value;
+
         if (username.trim() === "") {
             alert('Vui lòng nhập tên số điện thoại.');
             return false;
@@ -45,6 +47,13 @@
             alert('Mật khẩu không được vượt quá 20 ký tự');
             return false;
         }
+
+        var phoneNumberRegex = /^[0-9]{10}$/;
+        if (!phoneNumberRegex.test(username)) {
+            alert('Số điện thoại không hợp lệ. Vui lòng chỉ nhập số (0-9) và đủ 10 ký tự.');
+            return false;
+        }
+
 
         return true;
     }
