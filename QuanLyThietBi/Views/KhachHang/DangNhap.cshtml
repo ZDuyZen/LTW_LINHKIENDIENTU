@@ -9,12 +9,11 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form class="form-group" action="~/KhachHang/XLDangNhap" method="post">
+            <form class="form-group" action="~/KhachHang/XLDangNhap" method="post" onsubmit="return validateForm();">
                 Tên đăng nhập<br />
-                <input type="text" class="w-100" name="txtName" placeholder="Tên khách hàng" style="margin:20px" /><br />
+                <input type="text" class="w-100" name="txtName" id="txtName" placeholder="Số điện thoại khách hàng" style="margin:20px" /><br />
                 Mật khẩu<br />
                 <input type="password" class="w-100" name="txtPass" placeholder="Mật khẩu" style="margin:20px" />
-
 
                 <p style="text-align: center">
                     <input type="submit" value="Đăng Nhập" />
@@ -23,3 +22,30 @@
         </div>
     </div>
 </div>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById('txtName').value;
+        if (username.trim() === "") {
+            alert('Vui lòng nhập tên số điện thoại.');
+            return false;
+        }
+
+        if (password.trim() === "") {
+            alert('Vui lòng nhập mật khẩu.');
+            return false;
+        }
+
+        if (username.length > 14) {
+            alert('Tên đăng nhập không được nhập quá 10 ký tự.');
+            return false;
+        }
+
+        if (password.length > 20) {
+            alert('Mật khẩu không được vượt quá 20 ký tự');
+            return false;
+        }
+
+        return true;
+    }
+</script>

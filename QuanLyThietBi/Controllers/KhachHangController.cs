@@ -189,7 +189,16 @@ namespace QuanLyThietBi.Controllers
         }
         [HttpPost]
         public ActionResult XLDangKy(FormCollection fc)
-        {            
+        {
+            string dienThoai = fc["txtDT"];
+
+            if (db.TAIKHOANs.Any(t => t.TENDANGNHAP == dienThoai))
+            {
+                // Số điện thoại đã tồn tại
+                Session["DangKyLoi"] = "Số điện thoại đã tồn tại trong hệ thống.";
+                return RedirectToAction("DangKy"); // Chuyển hướng đến trang đăng ký hoặc trang hiển thị thông báo lỗi.
+            }
+
             TAIKHOAN tk = new TAIKHOAN();
             tk.TENDANGNHAP = fc["txtDT"];
             tk.PASS = fc["txtPass"];

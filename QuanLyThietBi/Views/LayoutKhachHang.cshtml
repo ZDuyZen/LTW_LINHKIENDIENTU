@@ -37,9 +37,20 @@
                                 <div class="dropdown">
                                     <a class="dropdown-toggle" id="dangnhap" data-toggle="dropdown" style="color: white" href="#">@Session["KH"]</a>
                                     <div class="dropdown-menu" aria-labelledby="dangnhap">
-                                        <a class="dropdown-item" href="~/KhachHang/DangXuat">Đăng xuất</a>
+                                        <a class="dropdown-item" href="#" onclick="confirmLogout()">Đăng xuất</a>
                                     </div>
                                 </div>
+
+                                <script>
+                                    function confirmLogout() {
+                                        var confirmResult = confirm("Bạn có chắc chắn muốn đăng xuất?");
+                                        if (confirmResult) {
+                                            // Người dùng đã xác nhận đăng xuất, tiến hành đăng xuất
+                                            window.location.href = "KhachHang/DangXuat";
+                                        }
+                                    }
+                                </script>
+
                             </li>
                         }
                     }

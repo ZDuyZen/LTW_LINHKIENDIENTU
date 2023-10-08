@@ -4,8 +4,9 @@
 }
 
 <h2>Đăng ký tài khoản</h2>
+<h3><span style="color: red">@Session["DangKyLoi"]</span></h3>
 
-<form action="/KhachHang/XLDangKy" method="post">
+<form action="/KhachHang/XLDangKy" method="post" onsubmit="return validateForm();">
     <table class="table-light">
         <tr>
             <td>Họ tên khách hàng</td>
@@ -55,8 +56,62 @@
         <tr>
             <td colspan="2">
                 <input type="submit" class="btn btn-primary" value="Đăng ký" />
-
             </td>
         </tr>
     </table>
 </form>
+
+<script>
+    function validateForm() {
+        var txtTen = document.getElementsByName('txtTen')[0].value;
+        var txtDT = document.getElementsByName('txtDT')[0].value;
+        var txtPass = document.getElementsByName('txtPass')[0].value;
+        var gioitinh = document.getElementsByName('gioitinh');
+        var txtEmail = document.getElementsByName('txtEmail')[0].value;
+        var txtDiaChi = document.getElementsByName('txtDiaChi')[0].value;
+
+        if (txtTen.trim() === "" || txtDT.trim() === "" || txtPass.trim() === "" || txtEmail.trim() === "" || txtDiaChi.trim() === "") {
+            alert('Đăng ký thất bại. Vui lòng điền đầy đủ thông tin.');
+            return false;
+        }
+
+        if (txtDT.length !== 10) {
+            alert('Số điện thoại phải đủ 10 ký tự.');
+            return false;
+        }
+
+        if (txtPass.length > 20) {
+            alert('Mật khẩu không được vượt quá 20 ký tự.');
+            return false;
+        }
+
+        if (txtDiaChi.length > 200) {
+            alert('Địa chỉ không được vượt quá 200 ký tự.');
+            return false;
+        }
+
+        if (txtTen.length > 20) {
+            alert('Tên khách hàng không được vượt quá 50 ký tự.');
+            return false;
+        }
+
+        if (txtEmail.length > 50) {
+            alert('Email không được vượt quá 50 ký tự.');
+            return false;
+        }
+        // Kiểm tra giới tính (ít nhất một radio button phải được chọn)
+        var gioitinhChecked = false;
+        for (var i = 0; i < gioitinh.length; i++) {
+            if (gioitinh[i].checked) {
+                gioitinhChecked = true;
+                break;
+            }
+        }
+        if (!gioitinhChecked) {
+            alert('Đăng ký thất bại. Vui lòng chọn giới tính.');
+            return false;
+        }
+
+        return true;
+    }
+</script>
