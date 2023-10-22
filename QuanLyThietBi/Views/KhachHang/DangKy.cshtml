@@ -31,7 +31,7 @@
 
         <tr>
             <td>
-                <label name="gioitinh">Giới tính</label>
+                <label for="gioitinh">Giới tính</label>
             </td>
             <td>
                 <input type="radio" name="gioitinh" value="1" /> Nam<br />
@@ -62,7 +62,8 @@
 </form>
 
 <script>
-    function validateForm() {
+    function validateForm()
+    {
         var txtTen = document.getElementsByName('txtTen')[0].value;
         var txtDT = document.getElementsByName('txtDT')[0].value;
         var txtPass = document.getElementsByName('txtPass')[0].value;
@@ -74,8 +75,6 @@
             alert('Đăng ký thất bại. Vui lòng điền đầy đủ thông tin.');
             return false;
         }
-
-
 
         if (txtPass.length > 20) {
             alert('Mật khẩu không được vượt quá 20 ký tự.');
@@ -103,8 +102,7 @@
             alert('Số điện thoại không hợp lệ. Vui lòng chỉ nhập số (0-9) và đủ 10 ký tự.');
             return false;
         }
-
-        var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        var emailRegex = /^[a-zA-Z0-9._-]+@@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!emailRegex.test(txtEmail)) {
             alert('Email không hợp lệ. Vui lòng nhập địa chỉ email đúng định dạng.');
             return false;
