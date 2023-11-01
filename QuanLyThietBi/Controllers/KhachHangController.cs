@@ -70,16 +70,31 @@ namespace QuanLyThietBi.Controllers
         public ActionResult XL_TimKiem(FormCollection fc)
         {
             string tenSP = fc["txtTen"];
-            int LSP=Convert.ToInt32(fc["LSP"]);
-            int giatritren, giatriduoi;
-            giatritren = Convert.ToInt32(fc["txtgiaTren"]);
-            giatriduoi = Convert.ToInt32(fc["txtgiaDuoi"]);
+            int LSP = Convert.ToInt32(fc["LSP"]);
+            int giatritren = 0;
+            int giatriduoi = 0;
+            string selectedLoaiSP = fc["selectedLoaiSP"];
 
-            List<SANPHAM> sp = db.SANPHAMs.Where(t => t.MALSP == LSP && t.TENSP.Contains(tenSP) && t.GIABAN >= giatriduoi && t.GIABAN <= giatritren).ToList();
-            ViewBag.tt = "Sản phẩm " + tenSP + " có giá từ " + giatriduoi.ToString() + " VND đến " + giatritren.ToString() + "VND";
+
+            IQueryable<SANPHAM> query = db.SANPHAMs;
+
+            if (LSP != 0)
+            {
+                query = query.Where(t => t.MALSP == LSP && t.TENSP.Contains(tenSP) && t.GIABAN >= giatriduoi && t.GIABAN <= giatritren);
+                giatritren = Convert.ToInt32(fc["txtgiaTren"]);
+                giatriduoi = Convert.ToInt32(fc["txtgiaDuoi"]);
+            }
+
+            List<SANPHAM> sp = query.ToList();
+
+            string tt = LSP == 0 ? "Tất cả sản phẩm" : "Sản phẩm <span style='color:blue'>" + tenSP + "</span>" +
+                " là loại <span style='color:green'>" + selectedLoaiSP + "</span>" +  " có giá từ <span style='color:red'>" + giatriduoi.ToString() + 
+                " VND</span> đến <span style='color:red'>" + giatritren.ToString() + " VND</span>";
+            ViewBag.tt = tt;
+
             return View(sp);
-
         }
+
 
         public void LuuGioHang(GioHang gio)
         {

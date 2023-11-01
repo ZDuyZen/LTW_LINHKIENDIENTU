@@ -5,7 +5,9 @@
 
 @using QuanLyThietBi.Models
 @model List<SANPHAM>
-<h2>Kết quả tìm kiếm @ViewBag.tt</h2>
+
+<h2>Kết quả tìm kiếm @Html.Raw(ViewBag.tt)</h2>
+
 <table class="table" cellspacing="0" border="1">
     <tr>
         <td>Mã sản phẩm</td>
@@ -13,24 +15,21 @@
         <td>Hình sản phẩm</td>
         <td>Giá Bán</td>
         <td>Số lượng tồn</td>
-
     </tr>
 
-    @{
-        foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.MASP</td>
-                <td>@item.TENSP</td>
-                <td>
-                    <img src="~/HinhAnhSP/@item.HINHSANPHAM" width="242" height="200"></img>
-                </td>
-                <td>@item.GIABAN</td>
-                <td>@item.SOLUONG</td>
-                <td>
-                    <a href="/KhachHang/XemChiTiet/@item.MASP">Xem chi tiết</a><br />
-                </td>
-            </tr>
-        }
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MASP</td>
+            <td>@Html.Raw(item.TENSP)</td>
+            <td>
+                <img src="~/HinhAnhSP/@item.HINHSANPHAM" width="242" height="200"></img>
+            </td>
+            <td>@item.GIABAN</td>
+            <td>@item.SOLUONG</td>
+            <td>
+                <a href="/KhachHang/XemChiTiet/@item.MASP">Xem chi tiết</a><br />
+            </td>
+        </tr>
     }
 </table>

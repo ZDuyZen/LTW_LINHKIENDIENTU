@@ -7,12 +7,13 @@
 @{
     List<LOAISP> lsp = ViewBag.lsp;
 }
-<form action="/KhachHang/XL_TimKiem" method="post">
+
+<form action="/KhachHang/XL_TimKiem" method="post" onsubmit="return validateForm()">
     <table class="table">
         <tr>
             <td>Tên sản phẩm</td>
             <td>
-                <input type="text" name="txtTen" />
+                <input type="text" name="txtTen" id="txtTen" />
             </td>
         </tr>
 
@@ -20,6 +21,8 @@
             <td>Loại sản phẩm</td>
             <td>
                 <select name="LSP">
+                    <option value="0"> ALL </option>
+
                     @{
                         foreach (var item in lsp)
                         {
@@ -27,22 +30,84 @@
                         }
                     }
                 </select>
+                <input type="hidden" name="selectedLoaiSP" id="selectedLoaiSP" />
+
             </td>
         </tr>
 
         <tr>
             <td colspan="2">
-                Giá từ 
-                <input type="text" name="txtgiaDuoi" /> 
-                đến <input type="text" name="txtgiaTren" />
-            </td>          
+                Giá từ
+                <input type="text" name="txtgiaDuoi" id="txtgiaDuoi" />
+                đến <input type="text" name="txtgiaTren" id="txtgiaTren" />
+            </td>
         </tr>
 
         <tr>
             <td colspan="2">
                 <input type="submit" value="Tìm kiếm" />
-
             </td>
         </tr>
-    </table> 
+    </table>
 </form>
+
+<script>
+    function validateForm() {
+        var txtTen = document.getElementById("txtTen");
+        var txtgiaDuoi = document.getElementById("txtgiaDuoi");
+        var txtgiaTren = document.getElementById("txtgiaTren");
+        var selectLSP = document.querySelector('select[name="LSP"]');
+
+        var tenValue = txtTen.value;
+        var giaDuoi = txtgiaDuoi.value.trim();
+        var giaTren = txtgiaTren.value.trim();
+        var selectedLSPValue = selectLSP.value;
+
+        if (selectedLSPValue === "0") {
+            return true; // Trả về true nếu LSP bằng 0
+        }
+
+        var selectedLSP = selectLSP.options[selectLSP.selectedIndex].text;
+        document.getElementById("selectedLoaiSP").value = selectedLSP;
+
+
+        if (tenValue.trim() === "") {
+            alert("Vui lòng nhập tên sản phẩm.");
+            return false;
+        }
+
+        if (giaDuoi === "") {
+            alert("Vui lòng nhập giá dưới.");
+            return false;
+        }
+
+        if (giaTren === "") {
+            alert("Vui lòng nhập giá trên.");
+            return false;
+        }
+
+        if (isNaN(giaDuoi) || isNaN(giaTren)) {
+            alert("Giá dưới và giá trên phải là số.");
+            return false;
+        }
+
+        giaDuoi = parseFloat(giaDuoi);
+        giaTren = parseFloat(giaTren);
+
+        if (giaDuoi < 0) {
+            alert("Giá dưới phải là số dương.");
+            return false;
+        }
+
+        if (giaTren <= 0) {
+            alert("Giá trên phải là số dương và khác 0.");
+            return false;
+        }
+
+      
+
+        return true;
+    }
+
+
+</script>
