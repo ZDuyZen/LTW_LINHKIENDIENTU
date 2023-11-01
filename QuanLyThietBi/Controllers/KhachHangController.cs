@@ -264,10 +264,23 @@ namespace QuanLyThietBi.Controllers
 
         public ActionResult ThanhToan()
         {
-            // Kiểm tra nếu Session["KH"] không tồn tại hoặc không thể chuyển đổi thành kiểu INT
-            if (Session["KH"] == null || !int.TryParse(Session["KH"].ToString(), out int maKhachHang))
+            // Kiểm tra nếu Session["KH"] không tồn tại hoặc không thể chuyển đổi thành kiểu string (số điện thoại)
+
+            string sdt = "";
+
+            if (Session["KH"] == null)
             {
                 // Xử lý khi Session["KH"] không có giá trị hợp lệ
+                // Ví dụ: bạn có thể chuyển hướng hoặc thông báo lỗi tùy ý
+                return RedirectToAction("Loi");
+            }
+            sdt = Session["KH"].ToString();
+
+            // Lấy thông tin khách hàng từ số điện thoại
+            KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(t => t.DIENTHOAI == sdt);
+            if (kh == null)
+            {
+                // Xử lý khi không tìm thấy thông tin khách hàng
                 // Ví dụ: bạn có thể chuyển hướng hoặc thông báo lỗi tùy ý
                 return RedirectToAction("Loi");
             }
@@ -278,14 +291,13 @@ namespace QuanLyThietBi.Controllers
                                       on donHang.MADH equals chiTiet.MADH
                                       join sanPham in db.SANPHAMs
                                       on chiTiet.MASP equals sanPham.MASP
-                                      where donHang.MAKH == maKhachHang
+                                      where donHang.MAKH == kh.MAKH
                                       select new
                                       {
                                           DonHang = donHang,
                                           ChiTietDonHang = chiTiet,
                                           SanPham = sanPham
                                       };
-
 
             List<CHITIETDONHANG> ctdh1 = donHangCuaKhachHang.Select(x => x.ChiTietDonHang).ToList();
 
@@ -302,11 +314,14 @@ namespace QuanLyThietBi.Controllers
             }
 
             // Kiểm tra xem có Session["KH"] tồn tại không
-            if (Session["KH"] == null || !int.TryParse(Session["KH"].ToString(), out int maKhachHang))
+            if (Session["KH"] == null)
             {
                 Session["DangNhapLoi"] = "Vui lòng đăng nhập để thanh toán";
                 return RedirectToAction("DangNhap");
             }
+            string sdt = "";
+            sdt = Session["KH"].ToString();
+
 
             int sodonhang = db.DONHANGs.ToList().Count + 1;
             List<Item> a = gio.lstSP;
@@ -319,8 +334,8 @@ namespace QuanLyThietBi.Controllers
             dh.DATHANHTOAN = "Chưa thanh toán";
             dh.TINHTRANGGIAOHANG = "Đang giao hàng";
 
-            // Lấy thông tin khách hàng từ mã khách hàng
-            KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(t => t.MAKH == maKhachHang);
+            // Lấy thông tin khách hàng từ số điện thoại
+            KHACHHANG kh = db.KHACHHANGs.FirstOrDefault(t => t.DIENTHOAI == sdt);
             if (kh != null)
             {
                 dh.MAKH = kh.MAKH;
@@ -350,6 +365,7 @@ namespace QuanLyThietBi.Controllers
                 return RedirectToAction("Loi");
             }
         }
+
 
     }
 }
