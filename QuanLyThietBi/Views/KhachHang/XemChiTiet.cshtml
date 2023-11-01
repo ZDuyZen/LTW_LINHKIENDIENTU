@@ -73,3 +73,28 @@
 
 
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var txtSoluong = document.querySelector("input[name='txtSoluong']");
+
+        txtSoluong.addEventListener("input", function (event) {
+            var value = txtSoluong.value;
+
+            // Kiểm tra nếu giá trị nhập không phải là số
+            if (isNaN(value)) {
+                txtSoluong.value = "";
+                alert("Vui lòng chỉ nhập số vào ô này.");
+            } else {
+                var intValue = parseInt(value);
+
+                // Kiểm tra giá trị không được là số 0 hoặc lớn hơn 100
+                if (intValue === 0 || intValue > 100) {
+                    txtSoluong.value = "";
+                    alert("Giá trị phải là số khác 0 và không lớn hơn 100.");
+                }
+            }
+        });
+    });
+</script>
